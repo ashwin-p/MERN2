@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Task 1 - Ashwin Ponnur</title>
+</head>
+<body>
+    <form id="numberForm">
+        <label for="inputNumber">Enter a number:</label>
+        <input type="number" id="inputNumber" name="inputNumber" required>
+        <button type="button" onclick="reverseNumber()">Reverse</button>
+    </form>
+    <p>Reversed Number: <span id="reversedNumber"></span></p>
+    <script>
+        function reverseNumber() {
+            var inputElement = document.getElementById("inputNumber");
+            var number = inputElement.value;
+            var reversedNumber = number.toString().split('').reverse().join('');
+            var reversedNumberElement = document.getElementById("reversedNumber");
+            reversedNumberElement.textContent = reversedNumber;
+        }
+    </script>
+</body>
+</html>

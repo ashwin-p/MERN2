@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Task 6 - Ashwin Ponnur</title>
+    <style>
+            body {
+        font-family: Arial, sans-serif;
+        background-color: #fafafa;
+        text-align: center;
+    }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 28px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3897f0;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .extra-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .checkbox {
+            display: inline-block;
+        }
+        .forgot-password {
+            display: inline-block;
+            color: #003569;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Instagram</h1>
+        <form id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="extra-links">
+                <div class="checkbox">
+                    <label for="remember-me"><input type="checkbox" id="remember-me" name="remember-me"> Remember Me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+
+            <button type="submit">Log In</button>
+        </form>
+        <p id="error-message" style="color: red;"></p>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username === "demo" && password === "password") {
+                window.location.href = "https://www.instagram.com";
+            } else {
+                document.getElementById("error-message").textContent = "Invalid username or password.";
+            }
+        });
+    </script>
+</body>
+</html>

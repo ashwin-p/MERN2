@@ -1,0 +1,70 @@
+    <!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Task 5 - Ashwin Ponnur</title>
+        <style>
+            .error-message {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="contact-form" onsubmit="return validateForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <span id="name-error" class="error-message"></span><br><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <span id="email-error" class="error-message"></span><br><br>
+            <label for="website">Website:</label>
+            <input type="text" id="website" name="website">
+            <span id="website-error" class="error-message"></span><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4"></textarea>
+            <span id="message-error" class="error-message"></span><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <script>
+            function validateForm() {
+                var name = document.getElementById("name").value;
+                var email = document.getElementById("email").value;
+                var website = document.getElementById("website").value;
+                var message = document.getElementById("message").value;
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                var websitePattern = /^(http|https):\/\/[^ "]+$/;
+                var isValid = true;
+                if (!name) {
+                    document.getElementById("name-error").textContent = "This field is required.";
+                    isValid = false;
+                } else {
+                    document.getElementById("name-error").textContent = "";
+                }
+                if (!email) {
+                    document.getElementById("email-error").textContent = "A valid email address is required.";
+                    isValid = false;
+                } else if (!emailPattern.test(email)) {
+                    document.getElementById("email-error").textContent = "A valid email address is required.";
+                    isValid = false;
+                } else {
+                    document.getElementById("email-error").textContent = "";
+                }
+                if (!website) {
+                    document.getElementById("website-error").textContent = "A valid url is required.";
+                    isValid = false;
+                } else if (!websitePattern.test(website)) {
+                    document.getElementById("website-error").textContent = "A valid url is required.";
+                    isValid = false;
+                } else {
+                    document.getElementById("website-error").textContent = "";
+                }
+                if (!message) {
+                    document.getElementById("message-error").textContent = "This field is required.";
+                    isValid = false;
+                } else {
+                    document.getElementById("message-error").textContent = "";
+                }
+                return isValid;
+            }
+        </script>
+    </body>
+</html>

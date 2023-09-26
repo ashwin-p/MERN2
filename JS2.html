@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Task 2 - Ashwin Ponnur</title>
+    </head>
+  <body>
+    <form id="wordForm">
+      <label for="inputWord">Enter a word:</label>
+      <input type="text" id="inputWord" name="inputWord" required>
+      <button type="button" onclick="sortWord()">Sort</button>
+    </form>
+    <p>Sorted Word: <span id="sortedWord"></span></p>
+    <script>
+      function sortWord() {
+        var inputElement = document.getElementById("inputWord");
+        var word = inputElement.value;
+        var sortedWord = word.split('').sort().join('');
+        var sortedWordElement = document.getElementById("sortedWord");
+        sortedWordElement.textContent = sortedWord;
+      }
+    </script>
+  </body>
+</html>
